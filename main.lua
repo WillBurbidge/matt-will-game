@@ -1,5 +1,5 @@
 -- This is a test ... WIll had just added this hello, hi!
-pixel = 600
+yPos = 600
 
 success = love.window.setMode( 1400, 800 )
 
@@ -11,13 +11,13 @@ function love.load()
 
  function love.update(dt)
     if love.keyboard.isDown("up") then
-       pixel = pixel + 1
+       yPos = yPos - 4
     end
     if love.keyboard.isDown("down") then
-        pixel = pixel - 1
+        yPos = yPos + 4
      end
  end
 
 function love.draw()
-    love.graphics.print("Test", 800, pixel)
+    love.graphics.print("Test", 800, yPos)
 end
