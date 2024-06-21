@@ -1,23 +1,31 @@
 -- This is a test ... WIll had just added this hello, hi!
 yPos = 600
-
+xPos = 600
 success = love.window.setMode( 1400, 800 )
 
 function love.load()
     love.graphics.setNewFont(12)
-    love.graphics.setColor(0,40,0)
+    love.graphics.setColor(0,0,0)
     love.graphics.setBackgroundColor(255,155,255)
  end
 
  function love.update(dt)
     if love.keyboard.isDown("up") then
-       yPos = yPos - 4
+       yPos = yPos - 1
     end
     if love.keyboard.isDown("down") then
-        yPos = yPos + 4
-     end
- end
+        yPos = yPos + 1
+     end    
+    if love.keyboard.isDown("left") then
+        xPos = xPos - 1
+    end
+    if love.keyboard.isDown("right") then
+        xPos = xPos + 1
+    end
+    
+end 
 
 function love.draw()
-    love.graphics.print("Test", 800, yPos)
+    love.graphics.circle( "fill", xPos, yPos, 25 )
+    
 end
