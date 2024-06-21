@@ -13,16 +13,16 @@ function love.load()
 
  function love.update(dt)
     if love.keyboard.isDown("up") then
-       yPos = yPos - 1
+       yPos = yPos - 1*dt
     end
     if love.keyboard.isDown("down") then
-        yPos = yPos + 1
+        yPos = yPos + 1*dt
      end    
     if love.keyboard.isDown("left") then
-        xPos = xPos - 1
+        xPos = xPos - 1*dt
     end
     if love.keyboard.isDown("right") then
-        xPos = xPos + 1
+        xPos = xPos + 1*dt
     end
     
 end 
