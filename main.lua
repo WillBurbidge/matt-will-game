@@ -7,6 +7,7 @@ function love.load()
     love.graphics.setNewFont(12)
     love.graphics.setColor(0,0,0)
     love.graphics.setBackgroundColor(255,155,255)
+    plant1 = love.graphics.newImage("plant1.png")
  end
 
  function love.update(dt)
@@ -26,6 +27,7 @@ function love.load()
 end 
 
 function love.draw()
-    love.graphics.circle( "fill", xPos, yPos, 25 )
+    --love.graphics.circle( "fill", xPos, yPos, 25 )
+    love.graphics.draw(bunny, xPos, yPos)
     
 end
