@@ -5,7 +5,7 @@ success = love.window.setMode( 1400, 800 )
 
 function love.load()
     love.graphics.setNewFont(12)
-    love.graphics.setColor(0,0,0)
+    --love.graphics.setColor(0,0,0)
     love.graphics.setBackgroundColor(255,155,255)
     plant1 = love.graphics.newImage("plant1.png")
  end
