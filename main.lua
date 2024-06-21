@@ -28,7 +28,7 @@ end
 
 function love.draw()
     --love.graphics.circle( "fill", xPos, yPos, 25 )
-    love.graphics.scale( 5, 5 )
-    love.graphics.draw(plant1, xPos, yPos)
+    --love.graphics.scale( 5, 5 )
+    love.graphics.draw(plant1, xPos, yPos, 0, 5, 5)
     
 end
