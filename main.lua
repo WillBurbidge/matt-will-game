@@ -28,6 +28,6 @@ end
 
 function love.draw()
     --love.graphics.circle( "fill", xPos, yPos, 25 )
-    love.graphics.draw(bunny, xPos, yPos)
+    love.graphics.draw(plant1, xPos, yPos)
     
 end
