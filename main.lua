@@ -4,11 +4,11 @@ xPos = 600
 success = love.window.setMode( 1400, 800 )
 
 function love.load()
+    love.graphics.setDefaultFilter("nearest","nearest") 
     love.graphics.setNewFont(12)
     --love.graphics.setColor(0,0,0)
     love.graphics.setBackgroundColor(255,155,255)
     plant1 = love.graphics.newImage("plant1.png")
-    love.graphics.setDefaultFilter("nearest","nearest") 
  end
 
  function love.update(dt)
