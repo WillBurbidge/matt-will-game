@@ -8,6 +8,7 @@ function love.load()
     --love.graphics.setColor(0,0,0)
     love.graphics.setBackgroundColor(255,155,255)
     plant1 = love.graphics.newImage("plant1.png")
+    love.graphics.setDefaultFilter("nearest","nearest") 
  end
 
  function love.update(dt)
