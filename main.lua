@@ -6,7 +6,9 @@ xPos = 0
 
 direction1 = 1 -- Sets direction of boat.
 direction2 = 1
-offset = 0
+offset = 0 -- offset needed while setting direction.
+
+local TilePlacer = require "TilePlacer"
 
 success = love.window.setMode( 1400, 800 ) -- Sets size of screen
 
@@ -17,6 +19,8 @@ function love.load()
     love.graphics.setBackgroundColor(255,255,255) -- Set background colour to white.
     water = love.graphics.newImage("water1.png") -- Loading in water
     animation = newAnimation(love.graphics.newImage("boat-sheet.png"), 32, 32, 1) -- Loading in boat animation
+    
+    tileplacer = TilePlacer() -- Tile generator
  end
 -- Sets position of water, may change later.
  function love.update(dt)
@@ -50,12 +54,14 @@ end
 
 function love.draw()
 
+    tileplacer:tilegen(-xPos, -yPos)
+
     -- For loops for generating a block of water
-    for i=0,320,32 do
-        for j=0,320,32 do
-            love.graphics.draw(water,xPos+(i*5),yPos+(j*5), 0, 5, 5)
-        end
-    end
+    --for i=0,320,32 do
+    --    for j=0,320,32 do
+    --        love.graphics.draw(water,xPos+(i*5),yPos+(j*5), 0, 5, 5)
+    --    end
+    --end
 
     -- These two lines are something to do with the animation of the boat.
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
