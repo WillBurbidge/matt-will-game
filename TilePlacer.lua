@@ -19,7 +19,7 @@ function TilePlacer(posx, posy)
 
     local imagedata = love.image.newImageData('map.png')
     local image = love.graphics.newImage(imagedata)
-    local scale = 3
+    local scale = 5
 	return {
         tilegen = function(self, posx, posy)
         for i = 0,31,1
