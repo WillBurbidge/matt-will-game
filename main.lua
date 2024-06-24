@@ -31,6 +31,11 @@ end
 function love.draw()
     --love.graphics.circle( "fill", xPos, yPos, 25 )
     --love.graphics.scale( 5, 5 )
+    for i=0,320,32 do
+        for j=0,320,32 do
+            love.graphics.draw(water,xPos+(i*5),yPos+(j*5), 0, 5, 5)
+        end
+    end
     love.graphics.draw(water,xPos,yPos, 0, 5, 5)
     love.graphics.draw(boat, 700, 400, 0, 5, 5)
     
