@@ -6,7 +6,7 @@ xPos = 0
 
 direction1 = 1 -- Sets direction of boat.
 direction2 = 1
-offset = 32
+offset = 0
 
 success = love.window.setMode( 1400, 800 ) -- Sets size of screen
 
@@ -32,11 +32,13 @@ function love.load()
         xPos = xPos + 200*dt
         direction1 = -1
         direction2 = 1
+        offset = 32
     end
     if love.keyboard.isDown("right") then
         xPos = xPos - 200*dt
         direction1 = 1
         direction2 = 1
+        offset = 0
     end
 
     -- Small bit to change the animationb based on its chosen duration.
@@ -57,7 +59,7 @@ function love.draw()
 
     -- These two lines are something to do with the animation of the boat.
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
-    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 700, 400, 0, direction1*5, direction2*5, 0) --offset needs fixing
+    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 668, 368, 0, direction1*5, direction2*5, offset) --offset needs fixing
     
 end
 
