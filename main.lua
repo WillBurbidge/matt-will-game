@@ -27,19 +27,19 @@ function love.load()
 
     -- Section for moving tiles when you press keyboard keys.
     if love.keyboard.isDown("up") then
-       yPos = yPos + 200*dt
+       yPos = yPos + 70*dt
     end
     if love.keyboard.isDown("down") then
-        yPos = yPos - 200*dt
+        yPos = yPos - 70*dt
      end    
     if love.keyboard.isDown("left") then
-        xPos = xPos + 200*dt
+        xPos = xPos + 70*dt
         direction1 = -1
         direction2 = 1
         offset = 32
     end
     if love.keyboard.isDown("right") then
-        xPos = xPos - 200*dt
+        xPos = xPos - 70*dt
         direction1 = 1
         direction2 = 1
         offset = 0
