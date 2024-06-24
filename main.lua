@@ -1,7 +1,12 @@
 -- This is a test ... WIll had just added this hello, hi!
+
+-- Sets position of water, may change later.
 yPos = 0
 xPos = 0
-success = love.window.setMode( 1400, 800 )
+
+direction = 1 -- Sets direction of boat.
+
+success = love.window.setMode( 1400, 800 ) -- Sets size of screen
 
 function love.load()
     love.graphics.setDefaultFilter("nearest","nearest") -- Filter which makes pixelart look nice.
@@ -11,7 +16,7 @@ function love.load()
     water = love.graphics.newImage("water1.png") -- Loading in water
     animation = newAnimation(love.graphics.newImage("boat-sheet.png"), 32, 32, 1) -- Loading in boat animation
  end
-
+-- Sets position of water, may change later.
  function love.update(dt)
 
     -- Section for moving tiles when you press keyboard keys.
@@ -23,9 +28,11 @@ function love.load()
      end    
     if love.keyboard.isDown("left") then
         xPos = xPos + 200*dt
+        direction = 1
     end
     if love.keyboard.isDown("right") then
         xPos = xPos - 200*dt
+        direction = -1
     end
 
     -- Small bit to change the animationb based on its chosen duration.
@@ -46,7 +53,7 @@ function love.draw()
 
     -- These two lines are something to do with the animation of the boat.
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
-    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 700, 400, 0, 5)
+    love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 700, 400, 0, 5, 5, 0, 0, direction)
     
 end
 
