@@ -4,16 +4,17 @@ xPos = 0
 success = love.window.setMode( 1400, 800 )
 
 function love.load()
-    love.graphics.setDefaultFilter("nearest","nearest") 
+    love.graphics.setDefaultFilter("nearest","nearest") -- Filter which makes pixelart look nice.
     love.graphics.setNewFont(12)
-    --love.graphics.setColor(0,0,0)
-    love.graphics.setBackgroundColor(255,155,255)
-    water = love.graphics.newImage("water1.png")
-    boat = love.graphics.newImage("boat7.png")
-    animation = newAnimation(love.graphics.newImage("boat-sheet.png"), 32, 32, 1)
+
+    love.graphics.setBackgroundColor(255,255,255) -- Set background colour to white.
+    water = love.graphics.newImage("water1.png") -- Loading in water
+    animation = newAnimation(love.graphics.newImage("boat-sheet.png"), 32, 32, 1) -- Loading in boat animation
  end
 
  function love.update(dt)
+
+    -- Section for moving tiles when you press keyboard keys.
     if love.keyboard.isDown("up") then
        yPos = yPos + 200*dt
     end
@@ -26,6 +27,8 @@ function love.load()
     if love.keyboard.isDown("right") then
         xPos = xPos - 200*dt
     end
+
+    -- Small bit to change the animationb based on its chosen duration.
     animation.currentTime = animation.currentTime + dt
     if animation.currentTime >= animation.duration then
         animation.currentTime = animation.currentTime - animation.duration
@@ -33,21 +36,21 @@ function love.load()
 end 
 
 function love.draw()
-    --love.graphics.circle( "fill", xPos, yPos, 25 )
-    --love.graphics.scale( 5, 5 )
+
+    -- For loops for generating a block of water
     for i=0,320,32 do
         for j=0,320,32 do
             love.graphics.draw(water,xPos+(i*5),yPos+(j*5), 0, 5, 5)
         end
     end
-    love.graphics.draw(water,xPos,yPos, 0, 5, 5)
-    --love.graphics.draw(boat, 700, 400, 0, 5, 5)
 
+    -- These two lines are something to do with the animation of the boat.
     local spriteNum = math.floor(animation.currentTime / animation.duration * #animation.quads) + 1
     love.graphics.draw(animation.spriteSheet, animation.quads[spriteNum], 700, 400, 0, 5)
     
 end
 
+-- Function to make animation from a spritemap.
 function newAnimation(image, width, height, duration)
     local animation = {}
     animation.spriteSheet = image;
